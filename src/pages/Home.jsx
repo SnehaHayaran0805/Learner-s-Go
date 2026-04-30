@@ -101,3 +101,21 @@ function Home() {
 }
 
 export default Home
+
+const updateLastVisited = async () => {
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return   // not logged in — skip
+
+  const today = new Date().toISOString().split('T')[0]
+
+  await supabase
+    .from('profiles')
+    .update({ last_visited: today })
+    .eq('id', user.id)
+}
+
+// Update your existing useEffect to call BOTH functions:
+useEffect(() => {
+  fetchTodaysWords()
+  updateLastVisited()  // ← ADD this line
+}, [])

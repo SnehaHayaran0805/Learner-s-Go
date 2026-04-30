@@ -38,7 +38,7 @@ function Header() {
       <div className="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between">
         <div>
           <h1 className="text-xl font-bold text-gray-900 tracking-tight flex items-center gap-2">
-            📖 LEARNER'S PRO
+            📖 LEARNER'S GO
             {user && streak > 0 && (
               <span className="text-sm font-semibold bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full">
                 🔥 {streak}
